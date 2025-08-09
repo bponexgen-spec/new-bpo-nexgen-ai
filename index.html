@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>NexGen BPO — AI Voice Agents</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<div id="cookie" class="cookie" style="display:none"><div id="cookieText">We use cookies to improve your experience. <a href="/privacy">Privacy</a></div><div><button id="accept" class="btn small">Accept</button></div></div>
+
+<header class="header"><div class="container header-inner">
+  <div class="brand"><img src="/static/images/logo.png" class="logo" alt="NexGen"><div><h1 id="brandTitle">NexGen BPO</h1><div class="tag" id="tagline">Your complete backoffice — 24/7</div></div></div>
+  <nav class="nav"><div class="lang-switch"><button id="btn-en" class="lang active">EN</button><button id="btn-nl" class="lang">NL</button></div></nav>
+</div></header>
+
+<main class="container">
+<section class="hero card"><div class="left">
+  <h2 id="heroH">AI Voice Agents that scale your backoffice</h2>
+  <p id="heroP">White-label voice agents, appointment setting, customer support and sales closing — globally, in multiple languages.</p>
+  <div class="cta"><button class="btn" id="pilotBtn">Request Pilot</button><button class="btn ghost" id="demoBtn">Live Demo</button></div>
+  <ul class="features" id="featuresList"><li>Save up to <strong>80%</strong> on labour costs</li><li>24/7 availability — no sick days</li><li>GDPR-ready & white-label</li></ul>
+</div><div class="right"><img src="/static/images/hero_banner.png" class="hero-img" alt="hero"></div></section>
+
+<section class="plans card"><h3 id="pricingH">Pricing</h3><div class="plan-grid"><div class="plan"><h4>Starter Pack</h4><p>200 min / month</p><div class="price">€49</div></div><div class="plan popular"><h4>Pro Pack</h4><p>1000 min / month</p><div class="price">€99</div></div><div class="plan"><h4>Enterprise Pack</h4><p>5000+ min</p><div class="price">Contact</div></div></div></section>
+
+<section class="savings card"><h3 id="savingsH">Savings for Your Industry</h3><div class="slider" id="savingsSlider"><div class="slide"><h4>Plumbing</h4><p>80% savings on receptionist labor — appointment setting & quote booking.</p></div><div class="slide"><h4>Dental</h4><p>Reduce no-shows and manage bookings automatically.</p></div><div class="slide"><h4>Real Estate</h4><p>Automate viewings, lead qualification and follow-ups.</p></div></div></section>
+
+<section class="calculator card"><h3 id="advisorH">Plan Advisor</h3><div class="row"><label id="lblInbound">Inbound/month <input id="inbound" type="number" value="120"></label><label id="lblOutbound">Outbound/month <input id="outbound" type="number" value="80"></label><label id="lblLength">Avg length (min) <input id="length" type="number" value="3"></label></div><button id="calc" class="btn">Recommend</button><div id="rec"></div></section>
+
+<section class="demo card"><h3 id="demoH">Voice Demo</h3><div class="controls"><select id="scenario"><option value="outbound_dutch">Outbound — Dutch</option><option value="inbound_dutch">Inbound — Dutch</option><option value="appointment_plumber_nl">Appointment — Plumber (NL)</option><option value="sales_closer_en">Sales Closer — EN</option></select><select id="voiceSel"><option value="Bella">Bella</option></select><button id="play" class="btn">Play</button></div><audio id="player" controls></audio><div id="transcript"></div></section>
+
+<section class="appointment card"><h3 id="apptH">Book an Appointment</h3><form id="apptForm"><label id="lblName">Name<input name="name" required></label><label id="lblPhone">Phone<input name="phone"></label><label id="lblEmail">Email<input name="email" type="email"></label><label id="lblService">Service<input name="service"></label><label id="lblDate">Date<input name="date" type="date"></label><label id="lblTime">Preferred time<input name="time_pref" type="time"></label><input type="hidden" name="lang" id="apptLang" value="en"><button type="submit" class="btn">Book</button><div id="apptStatus"></div></form></section>
+
+<section class="contact card"><h3 id="contactH">Contact / Request Pilot</h3><form id="contactForm"><input name="name" placeholder="Name" required><input name="email" type="email" placeholder="Email" required><select name="plan"><option>Starter Pack</option><option>Pro Pack</option><option>Enterprise Pack</option></select><textarea name="message" placeholder="Message"></textarea><button type="submit" class="btn">Send</button><div id="contactStatus"></div></form></section>
+
+<footer class="footer"><div id="copy">© 2025 NexGen BPO — White-label AI Agents</div><div><a href="/terms" id="termsLink">Terms</a> · <a href="/privacy" id="privacyLink">Privacy</a></div></footer>
+
+</main>
+<script src="/static/bundle.js"></script>
+</body>
+</html>
