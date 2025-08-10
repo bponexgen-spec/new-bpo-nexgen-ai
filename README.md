@@ -1,1 +1,2 @@
-NexGen BPO - Bilingual investor demo\n\nDeploy on Render:\n- Build: pip install -r requirements.txt\n- Start command from Procfile will run gunicorn.\n\nSet environment variable ELEVENLABS_API_KEY in Render to enable TTS.\n
+# NexGen Investor Project
+Deploy on Render by linking your repo or uploading ZIP.
