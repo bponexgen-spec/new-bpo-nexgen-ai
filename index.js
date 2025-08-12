@@ -1,0 +1,18 @@
+const express = require('express');
+const path = require('path');
+const bodyParser = require('body-parser');
+const fs = require('fs');
+const fetch = require('node-fetch');
+const app = express();
+app.use(require('cors')());
+app.use(bodyParser.json());
+const bookingsPath = path.join(__dirname, 'data', 'bookings.json');
+fs.mkdirSync(path.join(__dirname, 'data'), { recursive: true });
+if (!fs.existsSync(bookingsPath)) fs.writeFileSync(bookingsPath, JSON.stringify([]));
+app.post('/api/book', (req, res) => { const { name,email,datetime } = req.body; if(!name||!email||!datetime) return res.status(400).json({ok:false}); const bookings = JSON.parse(fs.readFileSync(bookingsPath)); bookings.push({name,email,datetime,createdAt:new Date().toISOString()}); fs.writeFileSync(bookingsPath, JSON.stringify(bookings,null,2)); res.json({ok:true}); });
+app.post('/api/voice', async (req,res)=>{ const { text } = req.body; const key = process.env.ELEVENLABS_API_KEY; if(!key) return res.status(400).json({ok:false,message:'No key'}); try{ const resp = await fetch('https://api.elevenlabs.io/v1/text-to-speech/EXAVITQu4vr4xnSDxMaL', {method:'POST', headers:{'xi-api-key':key,'Content-Type':'application/json'}, body: JSON.stringify({text})}); const txt = await resp.text(); res.json({ok:true,excerpt: txt.slice(0,200)}); }catch(e){res.status(500).json({ok:false,error:String(e)})} });
+app.post('/api/chat', (req,res)=>{ const { message } = req.body; const reply = `Demo assistant reply to: "${message}"\n(Replace with real OpenAI key to enable live ChatGPT)`; res.json({ok:true,reply}); });
+app.get('/api/health',(req,res)=>res.json({ok:true,time:new Date().toISOString()}));
+app.use(express.static(path.join(__dirname,'..','client','dist')));
+app.get('*',(req,res)=>res.sendFile(path.join(__dirname,'..','client','dist','index.html')));
+const port = process.env.PORT||4000; app.listen(port,()=>console.log('Server listening',port));
